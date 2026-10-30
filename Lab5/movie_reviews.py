@@ -41,7 +41,7 @@ def average_rating(title):
 
 def top_movies(count=2):
     """Return the titles of the highest-rated movies."""
-    ranked=sorted(MOVIES, key=average_rating, reverse=True)
+    ranked = sorted(MOVIES, key=average_rating, reverse=True)
     return ranked[:count]
 
 
@@ -54,6 +54,7 @@ def review_id(title, review_text):
     """Generate a short id for a review."""
     digest = hashlib.sha256((title + review_text).encode()).hexdigest()
     return digest[:10]
+
 
 def print_all_reviews():
     """Print every movie with its average rating."""
@@ -79,9 +80,9 @@ def main():
     print_all_reviews()
     print("Top movies:", top_movies())
     print("Featured today:", pick_featured())
-    print("Review id:", review_id("Laugh Track", "Not very funny")) # demo id
+    print("Review id:", review_id("Laugh Track", "Not very funny"))  # demo id
     print("Streaming from", stream_address())
-    print("Genres:",sorted(movie["genre"] for movie in MOVIES.values()))
+    print("Genres:", sorted(movie["genre"] for movie in MOVIES.values()))
 
 
 if __name__ == "__main__":
